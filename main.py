@@ -10,12 +10,16 @@ from mastermind.game import *
 pygame.init()
 
 def main():
-    title_screen()
-    game_setup()
-    result = game_loop()
+    game_settings = title_screen()
+    game_difficulty = game_settings[0]
+    game_max_attempts = game_settings[1]
+
+    board_setup(game_difficulty, game_max_attempts)
+    result = game_loop(game_difficulty, game_max_attempts)
     game_end(result)
 
 def title_screen():
+    game_settings = ['Hard', 10]             # default difficulty and max-attempts setting
     WINDOW.blit(menu, (0, 0))
     run = True
     while run:
@@ -26,28 +30,94 @@ def title_screen():
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_xpos, mouse_ypos = event.pos[0], event.pos[1]
-                if 90 < mouse_xpos < 500 and 320 < mouse_ypos < 440:        # play
+                if 90 < mouse_xpos < 500 and 320 < mouse_ypos < 440:            # Play game
                         run = False
-                elif 90 < mouse_xpos < 500 and 570 < mouse_ypos < 690:       # settings
-                        print('B')
-                elif 90 < mouse_xpos < 500 and 810 < mouse_ypos < 930:      # quit
+                elif 90 < mouse_xpos < 500 and 570 < mouse_ypos < 690:          # Change game settings
+                        game_settings = change_settings()
+                        run = False
+                elif 90 < mouse_xpos < 500 and 810 < mouse_ypos < 930:          # Quit game
                         pygame.quit()
                         sys.exit()
         pygame.display.update()
+    return game_settings
 
-def game_setup():
-    board = Board()
+def change_settings():
+    game_difficulty = 'Hard'                                                         # default settings
+    game_max_attempts = 10   
+
+    WINDOW.blit(gamesettings, (0, 0))
+    for i in range(3):                                                               # draw checkmarks spaces for max-attempts setting
+        WINDOW.blit(submitwaiting, ((100, 752 - SQUARE_SIZE*i)))
+    for i in range(3):                                                               # draw checkmarks spaces for difficulty
+        WINDOW.blit(submitwaiting, ((100, 502 - SQUARE_SIZE*i)))
+    WINDOW.blit(submitready, (100, 502))
+    WINDOW.blit(submitready, (100, 652))
+
+    run = True
+    while run:
+        pygame.time.Clock().tick(FPS)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_xpos, mouse_ypos = event.pos[0], event.pos[1]
+                if 100 < mouse_xpos < 150:
+                    if 402 < mouse_ypos < 448:          # DIFFICULTY: Easy
+                        game_difficulty = 'Easy'
+                        pygame.draw.rect(WINDOW, DGRAY, (100,350, SQUARE_SIZE, SQUARE_SIZE * 4.25))
+                        for i in range(3):                                                            
+                            WINDOW.blit(submitwaiting, ((100, 502 - SQUARE_SIZE*i)))
+                        WINDOW.blit(submitready, (100, 402))
+                    elif 452 < mouse_ypos < 498:        # DIFFICULTY: Normal
+                        game_difficulty = 'Normal'
+                        pygame.draw.rect(WINDOW, DGRAY, (100,350, SQUARE_SIZE, SQUARE_SIZE * 4.25))
+                        for i in range(3):                                                            
+                            WINDOW.blit(submitwaiting, ((100, 502 - SQUARE_SIZE*i)))
+                        WINDOW.blit(submitready, (100, 452))
+                    elif 502 < mouse_ypos < 548:        # DIFFICULTY: Hard
+                        game_difficulty = 'Hard'
+                        pygame.draw.rect(WINDOW, DGRAY, (100,350, SQUARE_SIZE, SQUARE_SIZE * 4.25))
+                        for i in range(3):                                                            
+                            WINDOW.blit(submitwaiting, ((100, 502 - SQUARE_SIZE*i)))
+                        WINDOW.blit(submitready, (100, 502))
+
+                    elif 652 < mouse_ypos < 698:        # MAX_ATTEMPTS = 10
+                        game_max_attempts = 10
+                        pygame.draw.rect(WINDOW, DGRAY, (100,650, SQUARE_SIZE, SQUARE_SIZE * 4.25))
+                        for i in range(3):                                                               
+                            WINDOW.blit(submitwaiting, ((100, 752 - SQUARE_SIZE*i)))
+                        WINDOW.blit(submitready, (100, 652))
+                    elif 702 < mouse_ypos < 748:        # MAX_ATTEMPTS = 8
+                        game_max_attempts = 8
+                        pygame.draw.rect(WINDOW, DGRAY, (100,650, SQUARE_SIZE, SQUARE_SIZE * 4.25))
+                        for i in range(3):                                                               
+                            WINDOW.blit(submitwaiting, ((100, 752 - SQUARE_SIZE*i)))
+                        WINDOW.blit(submitready, (100, 702))
+                    elif 752 < mouse_ypos < 898:        # MAX_ATTEMPTS = 6
+                        game_max_attempts = 6
+                        pygame.draw.rect(WINDOW, DGRAY, (100,650, SQUARE_SIZE, SQUARE_SIZE * 4.25))
+                        for i in range(3):                                                               
+                            WINDOW.blit(submitwaiting, ((100, 752 - SQUARE_SIZE*i)))
+                        WINDOW.blit(submitready, (100, 752))
+                if 100 < mouse_xpos < 500 and 900 < mouse_ypos < 975:        # Submit
+                        run = False
+        pygame.display.update()
+    return [game_difficulty, game_max_attempts]
+
+def board_setup(difficulty, max_attempts):
+    board = Board(difficulty, max_attempts)
     pygame.display.set_caption('Mastermind, implemented by Virgilio Viernes')
     board.play_music()
     board.draw_board(WINDOW)
     
-def game_loop():
-    game = Game()
+def game_loop(difficulty, max_attempts):
+    game = Game(difficulty, max_attempts)
     run = True
     game_is_won = False
     attempt = game.get_attempt()
     difficulty = game.get_difficulty()
-    while run and attempt <= MAX_ATTEMPTS:
+    while run and attempt <= max_attempts:
         pygame.time.Clock().tick(FPS)
         submitted_guess = False
         for event in pygame.event.get():
@@ -105,7 +175,7 @@ def game_loop():
 
         pygame.display.update()
         
-    if attempt > MAX_ATTEMPTS:
+    if attempt > max_attempts:
         game.show_answer()
         return game_is_won
     if run is False and game_is_won is True:
@@ -139,12 +209,8 @@ def game_end(result):
         pygame.display.update()
     
 
-
 if __name__ == "__main__":
    main()
-
-
-
 
 
 
