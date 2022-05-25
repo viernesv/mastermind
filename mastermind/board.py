@@ -3,10 +3,10 @@ from mastermind.constants import *
 
 
 class Board():
-    def __init__(self):
+    def __init__(self, difficulty, max_attempts):
         self.pieces = []
-        self.difficulty = DIFFICULTY
-        self.max_attempts = MAX_ATTEMPTS
+        self.difficulty = difficulty
+        self.max_attempts = max_attempts
 
         self.set_pieces()
 
@@ -30,14 +30,15 @@ class Board():
         for i in range(4):                                                                          # draw secret code 
             self.draw_item(window, piecesecret, 175 + SQUARE_SIZE*i, 300)
 
-        for i in range(MAX_ATTEMPTS):                                                               # draw submit code section
+        max_attempts = self.get_max_attempts()
+        for i in range(max_attempts):                                                               # draw submit code section
             self.draw_item(window, submitwaiting, 100, 800 - SQUARE_SIZE*i)
 
-        for row in range(MAX_ATTEMPTS):                                                             # draw guess section
+        for row in range(max_attempts):                                                             # draw guess section
             for col in range(4):
                 self.draw_item(window, piecewhite, 175  + SQUARE_SIZE*col, 800 - SQUARE_SIZE*row)
         
-        for row in range(MAX_ATTEMPTS):                                                             # draw clue section
+        for row in range(max_attempts):                                                             # draw clue section
             for col in range(4):
                 self.draw_item(window, cluegray, 400  + SQUARE_SIZE/2*col, 800 - SQUARE_SIZE*row)
 
@@ -49,6 +50,9 @@ class Board():
 
     def get_difficulty(self):
         return self.difficulty
+    
+    def get_max_attempts(self):
+        return self.max_attempts
     
     def set_pieces(self):
         difficulty = self.get_difficulty()
@@ -62,7 +66,7 @@ class Board():
     def play_music(self):
         pygame.mixer.init()
         pygame.mixer.music.load("assets/music.mp3")    
-        pygame.mixer.music.play(-1)                     # play music; argument of -1 loops music
+        pygame.mixer.music.play(-1)                         # play music; argument of -1 loops music
 
 
         
