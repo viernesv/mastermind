@@ -1,10 +1,6 @@
 import pygame
 
 
-# Game settings
-DIFFICULTY = 'Easy'
-MAX_ATTEMPTS = 10          # choose values [1,10]
-
 # Dimensions for Board components 
 WIDTH = 600
 HEIGHT = 1000
@@ -14,13 +10,14 @@ SQUARE_SIZE = 50
 WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
 DGRAY = (43, 52, 55)
 FPS = 30
-DELAY_TIME = 5500
+DELAY_TIME = 5000
 
 # Assets
 menu = pygame.image.load('assets/menu.png')
 win = pygame.image.load('assets/win_prompt.png')
 lose = pygame.image.load('assets/lose_prompt.png')
 background = pygame.image.load('assets/background.png')
+gamesettings = pygame.image.load('assets/gamesettings.png')
 buttonback = pygame.image.load('assets/buttonback.png')
 buttonmusicon = pygame.image.load('assets/buttonmusicon.png')
 buttonredo = pygame.image.load('assets/buttonredo.png')
