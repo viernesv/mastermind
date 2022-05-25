@@ -1,14 +1,15 @@
 import pygame
+import requests
 from mastermind.constants import *
+
 
 class Game():
     def __init__(self):
-        self.board = [ [], [], [], [], [], [], [], [], [], [] ]
-        self.difficulty = 'Normal'
+        self.difficulty = DIFFICULTY
+        self.max_attempts = MAX_ATTEMPTS
         self.attempt = 1
-        self.max_attempts = 10
-        self.allow_duplicates = True
         self.music_on = True
+        self.board = [ [], [], [], [], [], [], [], [], [], [] ]
         self.secret_code_num = self.set_secret_code_num()
         self.secret_code_color = self.set_secret_code_color()
         self.current_guess = []
@@ -28,9 +29,6 @@ class Game():
     def get_max_attempt(self):
         return self.max_attempts
     
-    def get_duplicates(self):
-        return self.duplicates
-    
     def get_music_on(self):
         return self.music_on
 
@@ -47,21 +45,20 @@ class Game():
         self.music_on = music_on
     
     def set_secret_code_num(self):
-        secret_code = [0, 0, 2, 1]
-        if self.get_duplicates is True:
-            if self.difficulty == 'Easy':
-                pass
-            elif self.difficulty == 'Normal':
-                pass
-            elif self.difficulty == 'Hard':
-                pass
-        else:
-            if self.difficulty == 'Easy':
-                pass
-            elif self.difficulty == 'Normal':
-                pass
-            elif self.difficulty == 'Hard':
-                pass
+        secret_code = []
+        difficulty = self.get_difficulty()
+        if difficulty == 'Easy':
+            response = requests.get('https://www.random.org/integers/?num=4&min=0&max=3&col=1&base=10&format=plain&rnd=new')        # 4 digits
+        elif difficulty == 'Normal':
+            response = requests.get('https://www.random.org/integers/?num=4&min=0&max=5&col=1&base=10&format=plain&rnd=new')        # 6 digits
+        elif difficulty == 'Hard':
+            response = requests.get('https://www.random.org/integers/?num=4&min=0&max=7&col=1&base=10&format=plain&rnd=new')        # 8 digits
+        random = response.text
+        secret_code = []
+        for char in random:
+            if char != '\n':
+                secret_code.append(int(char))
+        print(secret_code)
         return secret_code
 
     def set_secret_code_color(self):
@@ -91,9 +88,11 @@ class Game():
         if self.get_music_on() is True:
             pygame.mixer.music.set_volume(0)
             self.set_music_on(False)
+            pygame.mixer.music.pause()
         else:
             pygame.mixer.music.set_volume(1)
             self.set_music_on(True)
+            pygame.mixer.music.unpause()
 
     def place_color(self, color):
         color_to_asset_mapping = {
@@ -112,7 +111,7 @@ class Game():
         board = self.get_board_at_index(row)
         col = len(board)
         if col <= 3:
-            WINDOW.blit(asset, (175 + 50 * col, 800 - 50 * row))
+            WINDOW.blit(asset, (175 + SQUARE_SIZE * col, 800 - SQUARE_SIZE * row))
             board.append(color)
         
     def redo_guess(self):
@@ -120,23 +119,23 @@ class Game():
         row = attempt - 1
         self.get_board()[row] = []
 
-        pygame.draw.rect(WINDOW, (43, 52, 55), (100,800 - 50 * (attempt - 1), 300, SQUARE_SIZE))        # redraw submit guess space
-        WINDOW.blit(submitwaiting, (100, 800 - 50 * (attempt - 1)))
+        pygame.draw.rect(WINDOW, DGRAY, (100,800 - SQUARE_SIZE * (attempt - 1), 300, SQUARE_SIZE))              # redraw submit guess space
+        WINDOW.blit(submitwaiting, (100, 800 - SQUARE_SIZE * (attempt - 1)))
  
-        for col in range(4):                                                                            # redraw guess holes
+        for col in range(4):                                                                                    # redraw guess holes
             WINDOW.blit(piecewhite, (175  + SQUARE_SIZE * col, 800 - SQUARE_SIZE * (attempt - 1)))
 
     def draw_submit_button(self):
         attempt = self.get_attempt()
         row = attempt - 1
-        pygame.draw.rect(WINDOW, (43, 52, 55), (100,800 - 50 * (attempt - 1), SQUARE_SIZE, SQUARE_SIZE))
-        WINDOW.blit(submitready, (100, 800 - 50 * (row)))
+        pygame.draw.rect(WINDOW, DGRAY, (100,800 - SQUARE_SIZE * (attempt - 1), SQUARE_SIZE, SQUARE_SIZE))
+        WINDOW.blit(submitready, (100, 800 - SQUARE_SIZE * (row)))
 
     def submit_guess(self):
         attempt = self.get_attempt()
         row = attempt - 1
-        pygame.draw.rect(WINDOW, (43, 52, 55), (100,800 - 50 * (row), SQUARE_SIZE, SQUARE_SIZE))
-        WINDOW.blit(submitconfirm, (100, 800 - 50 * (row)))
+        pygame.draw.rect(WINDOW, DGRAY, (100,800 - SQUARE_SIZE * (row), SQUARE_SIZE, SQUARE_SIZE))
+        WINDOW.blit(submitconfirm, (100, 800 - SQUARE_SIZE * (row)))
 
     def give_clue(self):
         attempt = self.get_attempt()
@@ -180,11 +179,14 @@ class Game():
             'navy': piecenavy,
             'pink': piecepink 
         }
-        pygame.draw.rect(WINDOW, (43, 52, 55), (175,300, 200, SQUARE_SIZE))
+        pygame.draw.rect(WINDOW, DGRAY, (175,300, 200, SQUARE_SIZE))
+        WINDOW.blit(answerleft, (85,275))
+        WINDOW.blit(answerright, (365,275))
         
         secret_color_code = self.get_secret_code_color()
         for i in range(len(secret_color_code)):
             WINDOW.blit(color_to_asset_mapping[secret_color_code[i]], (175 + SQUARE_SIZE*i, 300))
+        pygame.display.update()
     
     
 
