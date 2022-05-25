@@ -9,12 +9,12 @@ MAX_ATTEMPTS = 10          # choose values [1,10]
 WIDTH = 600
 HEIGHT = 1000
 SQUARE_SIZE = 50
-FPS = 30
-DELAY_TIME = 5500
 
-# Display window
+# Display settings
 WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
 DGRAY = (43, 52, 55)
+FPS = 30
+DELAY_TIME = 5500
 
 # Assets
 menu = pygame.image.load('assets/menu.png')
