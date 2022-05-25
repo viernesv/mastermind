@@ -4,9 +4,9 @@ from mastermind.constants import *
 
 
 class Game():
-    def __init__(self):
-        self.difficulty = DIFFICULTY
-        self.max_attempts = MAX_ATTEMPTS
+    def __init__(self, difficulty, max_attempts):
+        self.difficulty = difficulty
+        self.max_attempts = max_attempts
         self.attempt = 1
         self.music_on = True
         self.board = [ [], [], [], [], [], [], [], [], [], [] ]
@@ -58,7 +58,6 @@ class Game():
         for char in random:
             if char != '\n':
                 secret_code.append(int(char))
-        print(secret_code)
         return secret_code
 
     def set_secret_code_color(self):
