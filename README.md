@@ -18,7 +18,7 @@ It'll take logical thinking and a little bit of luck to crack the secret combind
 Technologies used: Python, Pygame for GUI elements, random.org API for random number generation
 
 Implementations:
-* Title Page with interactive buttons start game, edit game settings, or quit.
+* Title Page with interactive buttons: start game, edit game settings, or quit.
 * While playing, use the top buttons to return to the title page, toggle the music on/off, or redo your current guess.
 * Game settings allow the player to set the difficulty and the maximum amount of attempts per game.
 * The game recognizes when the player has won or lost and invites them to play again or quit.
