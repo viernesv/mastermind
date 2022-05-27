@@ -32,4 +32,4 @@ Implementations:
 4. Enjoy the game!
 
 ## Screenshots
-<img src='https://github.com/viernesv/mastermind/blob/main/screenshots/title.png?raw=true' width="150")
+<img src="https://github.com/viernesv/mastermind/blob/main/screenshots/title.png?raw=true" width="150")
