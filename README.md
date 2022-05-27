@@ -14,7 +14,7 @@ they chose a correct color or, better yet, a correct color and its correct locat
 
 It'll take logical thinking and a little bit of luck to crack the secret combindation. Prove that you are a Mastermind!
 
-## Project Specficcations
+## Project Specfications
 Technologies used: Python, Pygame for GUI elements, random.org API for random number generation
 
 ## How to Run
