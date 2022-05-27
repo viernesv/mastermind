@@ -41,4 +41,4 @@ https://ibb.co/Kynk1bY
 https://ibb.co/p3KC3HW
 https://ibb.co/qmcgHvh
 
-<a href="https://ibb.co/CtsMbbc"><img src="https://i.ibb.co/n08n77G/board.png" width="50%" /></a>
+<a href="https://ibb.co/CtsMbbc"><img src="https://i.ibb.co/n08n77G/board.png" width="35%" /></a>
