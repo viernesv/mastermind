@@ -1,6 +1,8 @@
 # Mastermind
-Virgilio Viernes, 05/27/2022
-For consideration into LinkedIn's REACH Apprenticeship Program
+Completed for consideration into LinkedIn's REACH Apprenticeship Program
+Created by: Virgilio Viernes
+Date: 05/27/2022
+
 
 
 ## Overview
