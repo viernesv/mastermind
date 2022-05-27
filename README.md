@@ -32,4 +32,4 @@ Implementations:
 4. Enjoy the game!
 
 ## Screenshots
-![Alt text](https://github.com/viernesv/mastermind/screenshots/title.png?raw=true "Optional Title")
+![title](https://raw.github.com/viernesv/mastermind/screenshots/title.png)
