@@ -36,7 +36,7 @@ Implementations:
 
 <img src="https://i.ibb.co/n08n77G/board.png" width="40%" /> <img src="https://i.ibb.co/LddjWqy/components.png" width="40%" />
 
-<img src="https://i.ibb.co/PQn0YPP/clues.png" width="40%" /> <img src="https://i.ibb.co/k4sjpS4/lose-game.png" width="40%" />
+<img src="https://i.ibb.co/x5NMwGC/clues.png" width="40%" /> <img src="https://i.ibb.co/k4sjpS4/lose-game.png" width="40%" />
 
 <img src="https://i.ibb.co/bKdDg8H/lose-screen.png" width="40%" /> <img src="https://i.ibb.co/Q8qpRbv/win-screen.png" width="40%" />
 
