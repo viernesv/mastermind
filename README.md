@@ -1,6 +1,8 @@
 # Mastermind
 Completed for consideration into LinkedIn's REACH Apprenticeship Program
+
 Created by: Virgilio Viernes
+
 Date: 05/27/2022
 
 
