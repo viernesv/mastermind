@@ -32,7 +32,7 @@ Implementations:
 4. Enjoy the game!
 
 ## Screenshots
-![title](https://ibb.co/CtsMbbc "Title")
+![title](https://i.ibb.co/0XVFCC7/board.png "Title")
 
      
 https://ibb.co/CtsMbbc
