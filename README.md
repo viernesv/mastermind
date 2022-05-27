@@ -39,7 +39,7 @@ Implementations:
 
 ## How to Run
 0. Make sure you have Python version 3.x installed.
-1. Clone this repository into your preferred directory. 
+1. Download and unzip this repository into your preferred directory. 
 2. Using a terminal, change directory (cd) until you are in the root of this Mastermind directory. 
 3. In the terminal, type 'python3 main.py' to begin.
 
