@@ -30,3 +30,6 @@ Implementations:
 2. Using a terminal, change directory (cd) until you are in the root of this Mastermind directory. 
 3. In the terminal, type 'python3 main.py' to start the game. 
 4. Enjoy the game!
+
+## Screenshots
+![Alt text](/viernesv/mastermind/screenshots/title.png?raw=true "Optional Title")
