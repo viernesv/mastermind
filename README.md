@@ -32,8 +32,10 @@ Implementations:
 4. Enjoy the game!
 
 ## Screenshots
-<img src="https://i.ibb.co/XFK5nq6/title.png" width="40%" />     <img src="https://i.ibb.co/hMKHYWL/gamesettings.png" width="40%" />
+<img src="https://i.ibb.co/XFK5nq6/title.png" width="40%" /> <img src="https://i.ibb.co/hMKHYWL/gamesettings.png" width="40%" />
 
-<img src="https://i.ibb.co/n08n77G/board.png" width="40%" />     <img src="https://i.ibb.co/ThySCYZ/components.png" width="40%" />
+<img src="https://i.ibb.co/n08n77G/board.png" width="40%" /> <img src="https://i.ibb.co/LddjWqy/components.png" width="40%" />
 
-<img src="https://i.ibb.co/PQn0YPP/clues.png" width="40%" />
+<img src="https://i.ibb.co/PQn0YPP/clues.png" width="40%" /> <img src="https://i.ibb.co/k4sjpS4/lose-game.png" width="40%" />
+
+<img src="https://i.ibb.co/bKdDg8H/lose-screen.png" width="40%" /> <img src="https://i.ibb.co/Q8qpRbv/win-screen.png" width="40%" />
