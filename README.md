@@ -33,7 +33,7 @@ Implementations:
 
 ## Screenshots
 <img src="https://i.ibb.co/XFK5nq6/title.png" width="40%" />
-<img src="https://i.ibb.co/SKmqKkQ/settings.png" width="40%" />
+><img src="https://i.ibb.co/hMKHYWL/gamesettings.png" width="40%" />
 
 <img src="https://i.ibb.co/n08n77G/board.png" width="40%" />
 <img src="https://i.ibb.co/ThySCYZ/components.png" width="40%" />
