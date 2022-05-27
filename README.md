@@ -12,7 +12,7 @@ This is an implementation of the classic code-breaker game called Mastermind. Th
 of a randomly-generated color sequence within the allotted amount of attempts. After each guess, the player will be given clues that 
 will indicate whether they chose a correct color or, better yet, a correct color and its correct location within the sequence. 
 
-It'll take logical thinking and a little bit of luck to crack the secret combindation. Prove that you are a Mastermind!
+It'll take logical thinking and a little bit of luck to crack the secret combination. Prove that you are a Mastermind!
 
 
 ## Project Specfications
