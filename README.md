@@ -33,10 +33,10 @@ Implementations:
 
 ## Screenshots
 
-<a href="https://ibb.co/p3KC3HW"><img src="https://i.ibb.co/SKmqKkQ/settings.png" width="40%" /></a>
+<img src="https://i.ibb.co/SKmqKkQ/settings.png" width="40%" />
 
-<a href="https://ibb.co/CtsMbbc"><img src="https://i.ibb.co/n08n77G/board.png" width="40%" /></a>
+<img src="https://i.ibb.co/n08n77G/board.png" width="40%" />
 
-<a href="https://ibb.co/Kynk1bY"><img src="https://i.ibb.co/ThySCYZ/components.png" width="40%" /></a>
+<img src="https://i.ibb.co/ThySCYZ/components.png" width="40%" />
 
-<a href="https://ibb.co/8cptBff"><img src="https://i.ibb.co/PQn0YPP/clues.png" width="40%" /></a>
+<img src="https://i.ibb.co/PQn0YPP/clues.png" width="40%" />
