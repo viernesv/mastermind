@@ -15,7 +15,7 @@ will indicate whether they chose a correct color or, better yet, a correct color
 It'll take logical thinking and a little bit of luck to crack the secret combination. Prove that you are a Mastermind!
 
 
-## Project Specfications
+## Project Specifications
 Technologies used: Python, Pygame for GUI elements, random.org API for random number generation
 
 Code Structure:
@@ -24,10 +24,10 @@ Code Structure:
 * There are two classes used in the code: the Board class and the Game class.
 * The Board class is used to initialize the visual representation of the game-- i.e., its GUI. It contains
   functions that draw the various board components based on the settings provided by the player.
-* The Game class is used to to handle player actions, provide feedback back to player in the form of clues, 
-  and check if the game has been won or lost. 
+* The Game class is used to to handle player actions, provide feedback to the player in the form of clues, 
+  and checks if the game has been won or lost. 
 * An 'assets' directory is used to store GUI elements such as icons, the game background, and music.
-* A 'constants' python file is used to main global constants that control meta settings; it is also where
+* A 'constants' python file is used to set global constants that control meta settings; it is also where
   assets are loaded through pygame and assigned to variables for ease of use. 
 
 Implementations:
