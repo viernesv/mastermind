@@ -32,9 +32,8 @@ Code Structure:
 
 Implementations:
 * Title Page with interactive buttons: start game, edit game settings, or quit.
-* While playing, use the top buttons to return to the title page, toggle the music on/off, or redo your current guess.
-* Game settings allow the player to set the difficulty and the maximum amount of attempts per game.
-* The game recognizes when the player has won or lost and invites them to play again or quit.
+* Game buttons that returns the player to the title page, toggles the music on/off, or redos their current guess
+* Game settings that allows a player to change the difficulty and the maximum amount of attempts per game
 * A colorful and responsive GUI
 
 
