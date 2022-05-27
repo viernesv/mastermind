@@ -32,7 +32,7 @@ Implementations:
 4. Enjoy the game!
 
 ## Screenshots
-<img src="https://i.ibb.co/XFK5nq6/title.png" width="40%" /> <img src="https://i.ibb.co/hMKHYWL/gamesettings.png" width="35%" />
+<img src="https://i.ibb.co/XFK5nq6/title.png" width="40%" /> <img src="https://i.ibb.co/hMKHYWL/gamesettings.png" width="39%" />
 
 <img src="https://i.ibb.co/n08n77G/board.png" width="40%" /> <img src="https://i.ibb.co/LddjWqy/components.png" width="40%" />
 
